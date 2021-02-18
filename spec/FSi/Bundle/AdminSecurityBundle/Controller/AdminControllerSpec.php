@@ -24,6 +24,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Twig\Environment;
@@ -59,7 +60,7 @@ class AdminControllerSpec extends ObjectBehavior
         Environment $twig,
         FormFactoryInterface $formFactory,
         TokenStorageInterface $tokenStorage,
-        TokenInterface $token,
+        AbstractToken $token,
         ChangeablePasswordInterface $user,
         FormInterface $form,
         FormView $formView,
@@ -88,7 +89,7 @@ class AdminControllerSpec extends ObjectBehavior
     public function it_dispatch_event_and_redirect_user_to_login_page_after_successful_form_validation(
         FormFactoryInterface $formFactory,
         TokenStorageInterface $tokenStorage,
-        TokenInterface $token,
+        AbstractToken $token,
         ChangeablePasswordInterface $user,
         FormInterface $form,
         Request $request,
